@@ -1,5 +1,5 @@
 import express from 'express'
-import swaggerUi from 'swagger-ui-express';
+// import swaggerUi from 'swagger-ui-express';
 import swaggerDocs from './swagger.json';
 
 import ProvinceController from './controllers/ProvinceController'
@@ -18,7 +18,7 @@ routes.get('/', (req, res) => {
    res.redirect(301, "/api-docs")
 })
 
-routes.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
+// routes.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
 routes.get("/terms", (req, res) => {
    return res.json({
