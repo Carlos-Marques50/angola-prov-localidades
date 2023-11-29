@@ -1,5 +1,5 @@
 import express from 'express'
-// import swaggerUi from 'swagger-ui-express';
+import swaggerUi from 'swagger-ui-express';
 import swaggerDocs from './swagger.json';
 
 import ProvinceController from './controllers/ProvinceController'
@@ -15,14 +15,14 @@ const communeController = new CommuneController();
 const districtController = new DistrictController();
 
 routes.get('/', (req, res) => {
-   res.redirect(301, "/api-docs")
+   res.redirect(301, "/terms")
 })
 
-// routes.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
+routes.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
 routes.get("/terms", (req, res) => {
    return res.json({
-      message: "Free to all",
+      message: "Livre Para Todos. @Carlos Marques",
    })
 })
 
@@ -44,7 +44,5 @@ routes.get('/cities/:city/communes', communeController.showCity); // obtem o con
 routes.get('/districts', districtController.index); //obtem o conjunto de distritos de Angola
 routes.get('/provinces/:province/districts', districtController.showProvince); // obtem o conjunto de distritos de Angola a partir da provincia
 routes.get('/cities/:city/districts', districtController.showCity); // obtem o conjunto de distritos de Angola a partir da cidade
-
-
 
 export default routes;

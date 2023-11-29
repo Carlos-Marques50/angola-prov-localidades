@@ -4,6 +4,7 @@ exports.up = (knex) => {
 
       table.integer('province_id')
          .notNullable()
+         .unsigned() // Adicionado para indicar que é uma referência não assinada
          .references('id')
          .inTable('province');
 

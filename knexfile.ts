@@ -2,13 +2,14 @@ require('dotenv').config();
 // we cannot use export default, because knex doesnt suport yet
 
 const pg = require('pg');
+const mysql = require('mysql');
 
 if (process.env.DATABASE_URL) {
    pg.defaults.ssl = { rejectUnauthorized: false }
 }
 
 const sharedConfig = {
-   client: 'pg',
+   client: 'mysql',
    migrations: {
       directory: __dirname + '/src/database/migrations'
    },
